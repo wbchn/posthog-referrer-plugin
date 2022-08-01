@@ -1,0 +1,38 @@
+{
+    "name": "referrer-plugin",
+    "version": "0.0.1",
+    "description": "Automatically attach detailed referrer details to the event",
+    "main": "dist/index.js",
+    "files": [
+        "plugin.json",
+        "dist/index.js",
+        "README.md",
+        "LICENSE.md"
+    ],
+    "scripts": {
+        "test": "jest",
+        "build": "rm -rf dist && esbuild src/plugin.ts --bundle --platform=node --target=node10.4 --outfile=dist/index.js && mkdir dist/data && wget https://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/third-party/referer-parser/referers-latest.yaml -O dist/data/referers.yml && wget https://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/third-party/referer-parser/referers-latest.json -O dist/data/referers.json"
+    },
+    "keywords": [
+        "posthog",
+        "plugin",
+        "browser",
+        "event ingestion",
+        "referrer"
+    ],
+    "author": "wbchn",
+    "repository": "https://github.com/wbchn/posthog-referrer-plugin",
+    "license": "MIT",
+    "devDependencies": {
+        "@posthog/plugin-scaffold": "^0.12.10",
+        "@types/jest": "^27.0.3",
+        "esbuild": "^0.14.50",
+        "esbuild-jest": "^0.5.0",
+        "jest": "^27.4.5",
+        "tslib": "^2.3.1"
+    },
+    "dependencies": {
+        "referer-parser": "^0.0.3",
+        "@distributed/utm": "^0.0.6"
+    }
+}

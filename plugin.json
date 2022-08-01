@@ -1,0 +1,34 @@
+{
+    "name": "Referrer Plugin",
+    "url": "https://github.com/wbchn/posthog-referrer-plugin",
+    "description": "Enhances events with referrer details",
+    "main": "dist/index.js",
+    "config": [
+        {
+            "markdown": "Referrer plugin allows you to populate events"
+        },
+        {
+            "key": "eventsToTrack",
+            "hint": "**Format:**`eventA,eventB` **Spaces are not allowed**",
+            "name": "List of event for which parse referrer",
+            "type": "string",
+            "order": 1,
+            "default": "$pageview",
+            "required": true
+        },
+        {
+            "key": "refererParserYaml",
+            "name": "referer-parser YAML database",
+            "type": "attachment",
+            "hint": "The latest referer-parser yml file, https://github.com/snowplow-referer-parser/referer-parser",
+            "required": false
+        },
+        {
+            "key": "refererParserJson",
+            "name": "referer-parser JSON database",
+            "type": "attachment",
+            "hint": "The latest referer-parser json file, https://github.com/snowplow-referer-parser/referer-parser",
+            "required": false
+        }
+    ]
+}
