@@ -25,7 +25,7 @@ interface ReferrerPluginInput {
  * @param param0 the meta data of the plugin
  */
  export function setupPlugin({ config, global }: ReferrerPluginInput) {
-    global['eventsToTrack'] = new Set(config['eventsToTrack'].split(','))
+    global.eventsToTrack = new Set(config.eventsToTrack.split(','))
 }
 
 
@@ -58,9 +58,8 @@ interface ReferrerPluginInput {
  */
  export async function processEvent(event: PluginEvent, { global }: ReferrerPluginInput) {
     const referrer_url = event?.properties?.$referrer
-    const eventsToTrack: Set<string> = global['eventsToTrack']
 
-    if (eventsToTrack.has(event.event) && referrer_url) {
+    if (global.eventsToTrack.has(event.event) && referrer_url) {
         const current_url = event?.properties?.$current_url
         const referrer = new Referer(referrer_url, current_url)
         const initalReferrerObj: Properties = {
