@@ -11,7 +11,11 @@
     ],
     "scripts": {
         "test": "jest",
-        "build": "rm -rf dist && esbuild src/plugin.ts --bundle --platform=node --target=node10.4 --outfile=dist/index.js"
+        "build": "yarn clean && yarn compile",
+        "clean": "rimraf dist/*",
+        "typescript:compile": "tsc -b",
+        "typescript:check": "tsc --noEmit -p .",
+        "compile": "yarn typescript:compile"
     },
     "keywords": [
         "posthog",
@@ -23,12 +27,22 @@
     "author": "wbchn",
     "repository": "https://github.com/wbchn/posthog-referrer-plugin",
     "license": "MIT",
+    "dependencies": {
+        "@types/node-fetch": "^2.5.10",
+        "node-fetch": "^2.6.1"
+    },
     "devDependencies": {
+        "@maxmind/geoip2-node": "^2.3.1",
+        "@posthog/plugin-contrib": "^0.0.5",
         "@posthog/plugin-scaffold": "^0.12.10",
         "@types/jest": "^27.0.3",
+        "@types/js-yaml": "^4.0.5",
+        "@types/query-string": "^6.3.0",
         "esbuild": "^0.14.50",
         "esbuild-jest": "^0.5.0",
         "jest": "^27.4.5",
+        "js-yaml": "~2.1.0",
+        "query-string": "^7.1.1",
         "tslib": "^2.3.1"
     }
 }

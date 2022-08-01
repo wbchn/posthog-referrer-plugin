@@ -1,8 +1,8 @@
 import { CacheExtension, PluginEvent, PluginMeta, PluginAttachment, Properties, StorageExtension } from '@posthog/plugin-scaffold'
-const url = require('url')
-    , querystring = require('querystring')
-    , yaml = require('js-yaml')
-    , path = require('path');
+
+import * as querystring from 'query-string'
+import * as yaml from 'js-yaml'
+import * as url from "url"
 
 interface ReferrerPluginInput {
     config: {
