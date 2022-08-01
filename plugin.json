@@ -2,7 +2,7 @@
     "name": "Referrer Plugin",
     "url": "https://github.com/wbchn/posthog-referrer-plugin",
     "description": "Enhances events with referrer details",
-    "main": "dist/index.js",
+    "main": "index.ts",
     "config": [
         {
             "markdown": "Referrer plugin allows you to populate events"
