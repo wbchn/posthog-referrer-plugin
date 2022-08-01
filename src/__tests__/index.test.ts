@@ -6,7 +6,7 @@ import {
     StorageExtension,
     UtilsExtension,
 } from '@posthog/plugin-scaffold'
-import { processEvent } from '../plugin'
+import { setupPlugin, processEvent } from '..'
 
 const referersAttachment = {
     content_type: 'yaml',
