@@ -1,6 +1,6 @@
 import { CacheExtension, PluginEvent, PluginMeta, PluginAttachment, Properties, StorageExtension } from '@posthog/plugin-scaffold'
 
-import * as querystring from 'query-string'
+// import * as querystring from 'query-string'
 import * as yaml from 'js-yaml'
 import * as url from "url"
 
@@ -91,16 +91,16 @@ function Referer(referer_url, current_url, referers) {
     if (referer['medium'] == 'search') {
         if (!referer['params']) return
 
-        var pqs = querystring.parse(ref_uri.query)
+        // var pqs = querystring.parse(ref_uri.query)
 
-        for (var param in pqs) {
-            var val = pqs[param]
+        // for (var param in pqs) {
+        //     var val = pqs[param]
 
-            if (referer['params'].indexOf(param.toLowerCase()) !== -1) {
-                this.search_parameter = param
-                this.search_term = val
-            }
-        }
+        //     if (referer['params'].indexOf(param.toLowerCase()) !== -1) {
+        //         this.search_parameter = param
+        //         this.search_term = val
+        //     }
+        // }
     }
 }
 
